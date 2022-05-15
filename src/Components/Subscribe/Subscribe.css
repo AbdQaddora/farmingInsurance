@@ -1,0 +1,12 @@
+.subscribe{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 100%;
+}
+
+.subscribe p{
+    margin-bottom: 15px;
+}

@@ -1,0 +1,13 @@
+.modal p{
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.modal p input{
+    width: 100%;
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    padding: 7px 10px;
+    outline: none;
+    margin-top: 5px;
+}

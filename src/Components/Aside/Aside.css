@@ -1,0 +1,79 @@
+.aside {
+    width: 25%;
+    height: 100vh;
+    background-color: #222;
+    color: #fff;
+    box-shadow: 00px 0px 5px 5px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+
+.title span:nth-child(1) {
+    color: #64c265;
+    font-size: 35px;
+    font-weight: 800;
+}
+
+.title span:nth-child(3) {
+    font-size: 35px;
+    letter-spacing: 1px;
+}
+
+.aside form input{
+    width: 100%;
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    text-indent: 7px;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 10px 0px;
+    transition: all 0.3s ease-in-out;
+}
+
+.aside form input:focus{
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+
+}
+
+.aside form button , .showCalc , .confirm-btn{
+    user-select: none;
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    font-size: 24px;
+    border-radius: 7px;
+    background-color: #64c265;
+    color: #222;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.aside form button:hover , .showCalc:hover , .confirm-btn:hover{
+    background-color: #446A46;
+    color: #fff;
+}
+
+.showCalc{
+    position: absolute;
+    bottom: 15px;
+    width: fit-content;
+    font-size: 18px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
