@@ -1,5 +1,8 @@
 import { useState, useContext, createContext } from 'react';
 import Subscribe from '../Components/Subscribe/Subscribe';
+import { SubscribeModal } from '../Components/Subscribe/Subscribe';
+import errorImg from '../images/error.svg';
+
 const GlobalContext = createContext({});
 export const useGlobalContext = () => {
     return useContext(GlobalContext);
@@ -11,10 +14,11 @@ export default function GlobalContextProvider({ children }) {
     const [width, setWidth] = useState();
     const [length, setLength] = useState();
     const [location, setLocation] = useState({ lng: 0, lat: 0 });
-
+    const [modalWithOutClose, setModalWithOutClose] = useState(false);
     const openModal = () => {
         setShowModal(true);
     }
+
     const closeModal = () => {
         setShowModal(false);
     }
@@ -25,11 +29,23 @@ export default function GlobalContextProvider({ children }) {
 
     const subscribeFunction = () => {
         if (!width || width <= 0 || isNaN(width)) {
-            setInnerModal(<p className='error'>Please enter valid width 😢</p>);
+            changeInnerModal(
+                <div className='modal-with-img error'>
+                    <img src={errorImg} />
+                    <br />
+                    <h3>Please enter valid width 😢</h3>
+                </div>
+            )
         } else if (!length || length <= 0 || isNaN(length)) {
-            setInnerModal(<p className='error'>Please enter valid length 😢</p>);
+            changeInnerModal(
+                <div className='modal-with-img error'>
+                    <img src={errorImg} />
+                    <br />
+                    <h3>Please enter valid length 😢</h3>
+                </div>
+            )
         } else {
-            setInnerModal(<Subscribe />)
+            setInnerModal(<SubscribeModal />)
         }
         openModal();
     }
@@ -43,11 +59,13 @@ export default function GlobalContextProvider({ children }) {
             setLength,
             subscribeFunction,
             setLocation,
+            setModalWithOutClose,
             showModal,
             innerModal,
             width,
             length,
-            location
+            location,
+            modalWithOutClose
         }}>
             {/* {console.log(`width : ${width} ,length: ${length} ,location:{lat:${location.lat} , lng:${location.lng}} `)} */}
             {children}

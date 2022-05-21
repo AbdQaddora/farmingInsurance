@@ -1,4 +1,33 @@
-.App{
+.App {
   width: 100vw;
   display: flex;
+}
+
+.mobile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #222;
+  color: #F50057;
+  z-index: 999;
+  flex-direction: column;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.mobile img{
+  max-width: 70vw;
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width:720px) {
+  .mobile {
+    display: flex;
+  }
 }

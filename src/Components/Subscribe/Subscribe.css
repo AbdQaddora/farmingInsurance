@@ -10,3 +10,9 @@
 .subscribe p{
     margin-bottom: 15px;
 }
+
+.modal-with-img img{
+    max-width: 200px;
+    display: block;
+    margin: 0 auto;
+}

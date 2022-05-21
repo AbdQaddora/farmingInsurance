@@ -6,9 +6,11 @@ import './Map.css';
 
 import { useGlobalContext } from '../../Context/GlobalContext';
 import Modal from '../Modal/Modal';
-export default function Map() {
-    const { openModal, changeInnerModal, location, setLocation } = useGlobalContext();
 
+import mapImg from '../../images/map.svg';
+
+export default function Map() {
+    const { openModal, changeInnerModal, location, setLocation, setModalWithOutClose } = useGlobalContext();
     const mapElement = useRef();
     const [map, setMap] = useState();
     useEffect(() => {
@@ -25,12 +27,22 @@ export default function Map() {
             map.setCenter([crd.longitude, crd.latitude])
             const el = document.createElement("div");
             el.className = "marker";
-            new tt.Marker({
-                element: el
-            }).setLngLat([crd.longitude, crd.latitude]).addTo(map);
+            let marker = new tt.Marker({
+                element: el,
+                draggable: true
+            }).setLngLat([crd.longitude, crd.latitude])
+                .addTo(map);
+            marker.on("dragend", () => { setLocation({ lng: marker.getLngLat().lng, lat: marker.getLngLat().lat }) })
         }
         const handelModal = () => {
-            changeInnerModal(<p className='error'>please enable location we need it in weather checking </p>);
+            setModalWithOutClose(true);
+            changeInnerModal(
+                <div className='modal-with-img'>
+                    <img src={mapImg} />
+                    <br />
+                    <h3 style={{textAlign:"center"}}>please enable location then refresh the page <br /> we need it in weather checking 🌧</h3>
+                </div>
+            )
             openModal();
         }
 

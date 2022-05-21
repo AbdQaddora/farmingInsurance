@@ -6,8 +6,7 @@
 }
 
 .error {
-  color: red;
-  margin-top: 70px;
+  color: #F50057;
   text-align: center;
   font-weight: 900
 }
